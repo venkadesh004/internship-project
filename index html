@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ether Infotech</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <main class="main-container">
+      <nav>
+        <img class="logo" src="./img/logo.webp" alt="logo" />
+
+        <ul id="main-nav">
+          <a href="#home">home</a>
+
+          <a href="#about">about us</a>
+          <a href="#certification">certification</a>
+          <a href="#contact">contact us</a>
+        </ul>
+        <ul id="nav">
+          <a onclick="myFunction()" href="#home">home</a>
+          <a onclick="myFunction()" href="#about">about us</a>
+          <a onclick="myFunction()" href="#certification">certification</a>
+          <a onclick="myFunction()" href="#contact">contact us</a>
+        </ul>
+
+        <div class="container" id="menu" onclick="myFunction()">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
+      </nav>
+
+      <section id="home" class="hero-section">
+        <div class="hero-content">
+          <h1>It Jobs</h1>
+          <p>
+            With 6 crore IT Jobs on the way You Cannot be left We are there for
+            you
+          </p>
+          <button>contact us</button>
+        </div>
+        <div class="hero-img">
+          <img class="img1 img" src="./img/gallery1.webp" alt="" />
+          <img class="img2 img" src="./img/gallery2.webp" alt="" />
+          <img class="img3 img" src="./img/gallery3.webp" alt="" />
+        </div>
+      </section>
+
+      <section id="about" class="about-section">
+        <h1>About Us</h1>
+        <div class="about">
+          <p>
+            We are a leading software training and placement company dedicated
+            to empowering individuals with the skills they need to thrive in the
+            ever-evolving world of technology. With our ISO 9001:2015
+            certification, we ensure that our training programs and placement
+            services meet the highest standards of quality and effectiveness. At
+            Ether Infotech, we understand that the demand for skilled software
+            professionals is constantly growing. To bridge the gap between
+            industry requirements and the skills possessed by job seekers, we
+            offer comprehensive training programs in a wide range of
+            cutting-edge technologies. Our courses are meticulously designed and
+            delivered by industry experts who bring their extensive knowledge
+            and practical experience to the classroom.
+          </p>
+
+          <img width="400" src="./img/teamImage.webp" alt="teamImage" />
+        </div>
+      </section>
+
+      <section id="certification" class="certification-section">
+        <h1>Certifications</h1>
+        <div class="content">
+          <img
+            width="390"
+            height="500"
+            src="./img/certification.webp"
+            alt="certification"
+          />
+          <div>
+            <p>
+              The company is certified by the KVQA Certification Services for
+              the quality of Management System of SG Enterprises for meeting up
+              to the quality Management standards of ISO 9001:2015 for Software
+              Training, Development and Digital Marketing Services from 2023 to
+              2026
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <h1>Contact Us</h1>
+        <div class="contact-content">
+          <div class="contact-links">
+            <div>
+              <i class="fa-solid fa-magnifying-glass-location"></i>
+              <p>
+                ETHER INFOTECH: 35/4, 2nd Floor, Arputham Towers, Desabandhu St,
+                Ram Nagar, Coimbatore, Tamil Nadu 641009
+              </p>
+            </div>
+            <div>
+              <i class="fa-solid fa-phone-volume"></i>
+              <p>+91 82205 71905</p>
+            </div>
+            <div>
+              <i class="fa-solid fa-envelopes-bulk"></i>
+              <p>info@etherinfotech.com</p>
+            </div>
+          </div>
+          <div class="line"></div>
+
+          <form class="form">
+            <input placeholder="Enter Name" type="text" id="thename" />
+            <input placeholder="Enter Email " type="email" id="themail" />
+            <textarea
+              id="themsg"
+              placeholder="Enter Your Message "
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+            ></textarea>
+            <div id="hidden-msg"></div>
+            <button onclick="sendemail()" type="button">Contact Us</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function myFunction() {
+        const x = document.getElementById("menu");
+        x.classList.toggle("change");
+        const navEl = document.getElementById("nav");
+
+        if (navEl.style.display == "flex") {
+          navEl.style.display = "none";
+        } else {
+          navEl.style.display = "flex";
+        }
+      }
+
+      function sendemail() {
+        var userid = "1MLMSzsTl4VFlg5o4a_8k";
+        // emailjs.init(userid);
+        var thename = document.getElementById("thename").value;
+        var themail = document.getElementById("themail").value;
+        var themsg = document.getElementById("themsg").value;
+        var returnMsg = document.getElementById("hidden-msg");
+        var resultText =
+          "Your message is sent!! We will reply you as soon as possible!";
+        var validmail = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
+        if (thename == "") {
+          returnMsg.innerHTML = "Name is Empty";
+          returnMsg.style.color = "red";
+        } else if (themail == "" || themail.match(!validmail)) {
+          returnMsg.innerHTML = "Please Enter Valid Email";
+          returnMsg.style.color = "red";
+        } else if (themsg == "") {
+          returnMsg.innerHTML = "Please Enter Message";
+          returnMsg.style.color = "red";
+        } else {
+          // var contactdetail = {
+          //   from_name: thename,
+          //   from_email: themail,
+          //   message: themsg,
+          // };
+
+          // emailjs.send("service_n8pe4cl", "template_qa6ut3q", contactdetail).then(
+          //   function (res) {
+          //     alert("Email Sent Successfully");
+          //   },
+          //   (reason) => {
+          //     alert("Error Occur");
+          //   }
+          // );
+          var data = {
+            service_id: "service_n8pe4cl",
+            template_id: "template_qa6ut3q",
+            user_id: "NuqZNK9_2HRsMPffr",
+            template_params: {
+              user_name: thename,
+              user_email: themail,
+              message: themsg,
+            },
+          };
+
+          $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
+            type: "POST",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+          })
+            .done(function () {
+              returnMsg.innerHTML = "Your mail is sent!";
+              returnMsg.style.color = "green";
+            })
+            .fail(function (error) {
+              returnMsg.innerHTML = "Oops... " + JSON.stringify(error);
+              returnMsg.style.color = "red";
+            });
+        }
+      }
+    </script>
+  </body>
+</html>
